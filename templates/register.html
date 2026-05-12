@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+
+<div class="register-page">
+
+    <div class="register-wrapper">
+
+        <!-- LEFT -->
+
+        <div class="register-left">
+
+            <img src="{% static 'images/register.jpg' %}"
+                 class="register-image">
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="register-right">
+
+            <form method="POST"
+                  class="register-form">
+
+                {% csrf_token %}
+
+                <h2>
+                    Create Account
+                </h2>
+
+                <p>
+                    Register to access DocCare
+                    healthcare services.
+                </p>
+
+                <div class="input-group">
+
+                    <input type="text"
+                           name="username"
+                           placeholder="Enter Username"
+                           required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <input type="email"
+                           name="email"
+                           placeholder="Enter Email"
+                           required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <input type="password"
+                           name="password"
+                           placeholder="Enter Password"
+                           required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <select name="role"
+                            required>
+
+                        <option value="">
+                            Select Role
+                        </option>
+
+                        <option value="patient">
+                            Patient
+                        </option>
+
+                        <option value="doctor">
+                            Doctor
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <button type="submit"
+                        class="register-submit-btn">
+
+                    Register
+
+                </button>
+
+                <div class="bottom-text">
+
+                    Already have an account?
+
+                    <a href="{% url 'login' %}">
+                        Login
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

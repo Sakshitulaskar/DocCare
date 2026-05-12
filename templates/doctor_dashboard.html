@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Doctor Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <h1>
+        Doctor Dashboard
+    </h1>
+
+    <div class="appointment-table">
+
+        <table>
+
+            <tr>
+
+                <th>Patient</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Problem</th>
+                <th>Status</th>
+                <th>Action</th>
+                <th>Action</th>
+
+            </tr>
+
+            {% for appointment in appointments %}
+
+            <tr>
+
+                <td>
+                    {{ appointment.patient.username }}
+                </td>
+
+                <td>
+                    {{ appointment.age }}
+                </td>
+
+                <td>
+                    {{ appointment.gender }}
+                </td>
+
+                <td>
+                    {{ appointment.phone }}
+                </td>
+
+                <td>
+                    {{ appointment.appointment_date }}
+                </td>
+
+                <td>
+                    {{ appointment.appointment_time }}
+                </td>
+
+                <td>
+                    {{ appointment.message }}
+                </td>
+
+                <td>
+                    {{ appointment.status }}
+                </td>
+
+                <td>
+
+    <a href="{% url 'cancel_appointment' appointment.id %}"
+       class="cancel-btn">
+
+       Cancel
+
+    </a>
+
+</td>
+                <td>
+
+    <a href="{% url 'approve_appointment' appointment.id %}"
+       class="approve-btn">
+
+       Approve
+
+    </a>
+
+    <a href="{% url 'reject_appointment' appointment.id %}"
+       class="reject-btn">
+
+       Reject
+
+    </a>
+
+</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

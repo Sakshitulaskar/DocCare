@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Patient Dashboard
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <h1>
+        Patient Dashboard
+    </h1>
+
+    <div class="appointment-table">
+
+        <table>
+
+            <tr>
+
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Problem</th>
+                <th>Status</th>
+                <th>Action</th>
+
+            </tr>
+
+            {% for appointment in appointments %}
+
+            <tr>
+
+                <td>
+                    Dr. {{ appointment.doctor.username }}
+                </td>
+
+                <td>
+                    {{ appointment.appointment_date }}
+                </td>
+
+                <td>
+                    {{ appointment.appointment_time }}
+                </td>
+
+                <td>
+                    {{ appointment.message }}
+                </td>
+
+                <td>
+                    {{ appointment.status }}
+                </td>
+
+                <td>
+
+                    <a href="{% url 'cancel_appointment' appointment.id %}"class="cancel-btn"onclick="return confirmCancel()">
+                        Cancel
+                       </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

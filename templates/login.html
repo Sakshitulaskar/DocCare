@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+<div class="login-page">
+
+    <div class="login-wrapper">
+
+        <!-- LEFT -->
+
+        <div class="login-left">
+
+           <img src="{% static 'images/login.jpg' %}" class="login-image">
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="login-right">
+
+            <form method="POST"
+                  class="login-form">
+
+                {% csrf_token %}
+
+                <h2>
+                    Login
+                </h2>
+
+                <p>
+                    Please login to continue
+                </p>
+
+                <div class="input-group">
+
+                    <input type="text"
+                           name="username"
+                           placeholder="Enter Username"
+                           required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <input type="password"
+                           name="password"
+                           placeholder="Enter Password"
+                           required>
+
+                </div>
+
+                <button type="submit"
+                        class="login-submit-btn">
+
+                    Login
+
+                </button>
+
+<div class="bottom-text">
+
+    Don't have an account?
+
+    <a href="{% url 'register' %}">
+        Create Account
+    </a>
+
+</div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

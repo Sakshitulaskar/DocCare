@@ -1,0 +1,377 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Services
+{% endblock %}
+
+{% block content %}
+<style>
+
+.services-section{
+    width:100%;
+    padding:90px 8%;
+    background:#f8f9fa;
+}
+
+.services-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.services-title h1{
+    font-size:55px;
+    color:#0a2a43;
+    margin-bottom:15px;
+    font-weight:700;
+}
+
+.services-title p{
+    color:#666;
+    font-size:18px;
+}
+
+.service-container{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:35px;
+}
+
+.service-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.4s;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 25px rgba(13,110,253,.2);
+}
+
+.service-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.service-content{
+    padding:25px;
+}
+
+.service-content h2{
+    font-size:28px;
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.service-content p{
+    color:#666;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* ABOUT STYLE SECTION */
+
+.medical-about{
+    width:100%;
+    padding:90px 8%;
+    background:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:50px;
+}
+
+.about-left{
+    flex:1;
+    min-width:300px;
+}
+
+.about-left small{
+    color:#0d6efd;
+    font-size:14px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.about-left h2{
+    font-size:50px;
+    color:#0a2a43;
+    margin:15px 0;
+    line-height:1.3;
+}
+
+.about-left p{
+    color:#666;
+    line-height:1.9;
+    margin-bottom:30px;
+}
+
+.feature-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.feature-box img{
+    width:60px;
+    height:60px;
+}
+
+.feature-box h4{
+    font-size:20px;
+    color:#0a2a43;
+    margin-bottom:5px;
+}
+
+.feature-box span{
+    color:#666;
+    font-size:15px;
+}
+
+.read-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:14px 35px;
+    background:#0d6efd;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.read-btn:hover{
+    background:#0b5ed7;
+}
+
+.about-right{
+    flex:1;
+    min-width:300px;
+    position:relative;
+}
+
+.about-right img{
+    width:100%;
+    border-radius:18px;
+}
+
+.stats-box{
+    position:absolute;
+    top:50%;
+    right:-20px;
+    transform:translateY(-50%);
+
+    background:#0d47a1;
+    color:white;
+
+    padding:40px 30px;
+    border-radius:15px;
+}
+
+.stats-box h3{
+    font-size:40px;
+    margin-bottom:5px;
+}
+
+.stats-box p{
+    margin-bottom:25px;
+    font-size:14px;
+    color:#ddd;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:992px){
+
+    .stats-box{
+        position:static;
+        transform:none;
+        margin-top:20px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .services-section,
+    .medical-about{
+        padding:70px 5%;
+    }
+
+    .services-title h1{
+        font-size:42px;
+    }
+
+    .about-left h2{
+        font-size:38px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .services-title h1{
+        font-size:34px;
+    }
+
+    .about-left h2{
+        font-size:30px;
+    }
+
+    .service-content h2{
+        font-size:24px;
+    }
+
+}
+
+</style>
+
+<section class="services-section">
+
+    <div class="services-title">
+
+        <h1>Our Medical Services</h1>
+
+        <p>
+
+            We provide quality healthcare services
+            with experienced doctors and modern facilities.
+
+        </p>
+
+    </div>
+
+    <div class="service-container">
+
+        <div class="service-card">
+
+           <img src="{% static 'images/eyecare.jpg' %}">
+
+            <div class="service-content">
+
+                <h2>Eye Care</h2>
+
+                <p>
+
+                    Professional eye care services
+                    with experienced specialists.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="service-card">
+
+            <img src="{% static 'images/cardiology.jpg' %}">
+
+            <div class="service-content">
+
+                <h2>Cardiology</h2>
+
+                <p>
+
+                    Advanced heart treatment and
+                    cardiology consultation services.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="service-card">
+
+            <img src="{% static 'images/dentalcare.jpg' %}">
+
+            <div class="service-content">
+
+                <h2>Dental Care</h2>
+
+                <p>
+
+                    Complete dental treatment
+                    and oral healthcare services.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="medical-about">
+
+    <div class="about-left">
+
+        <small>ABOUT US</small>
+
+        <h2>Joining Hands With Technology</h2>
+
+        <p>
+
+            DocCare helps patients easily connect
+            with doctors online and book appointments
+            quickly with modern healthcare facilities.
+
+        </p>
+
+        <div class="feature-box">
+
+            <img src="{% static 'images/drconsultation.jpg' %}">
+
+            <div>
+
+                <h4>Health Protection</h4>
+
+                <span>
+
+                    Advanced healthcare services
+                    for better patient care.
+
+                </span>
+
+            </div>
+
+        </div>
+
+        
+        <a href="/about/" class="read-btn">Read More</a>
+
+    </div>
+
+    <div class="about-right">
+
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1200">
+
+        <div class="stats-box">
+
+            <h3>450+</h3>
+            <p>Happy Patients</p>
+
+            <h3>100+</h3>
+            <p>Saved Hearts</p>
+
+            <h3>59+</h3>
+            <p>Expert Doctors</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

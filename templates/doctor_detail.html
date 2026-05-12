@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Doctor Details
+{% endblock %}
+
+{% block content %}
+
+<div class="doctor-detail-page">
+
+    <div class="doctor-detail-card">
+
+        <!-- LEFT -->
+
+        <div class="doctor-detail-left">
+
+            <img src="{{ doctor.image.url }}">
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="doctor-detail-right">
+
+            <h1>
+                Dr. {{ doctor.user.username }}
+            </h1>
+
+            <p>
+                <strong>Specialization:</strong>
+                {{ doctor.specialization }}
+            </p>
+
+            <p>
+                <strong>Qualification:</strong>
+                {{ doctor.qualification }}
+            </p>
+
+            <p>
+                <strong>Experience:</strong>
+                {{ doctor.experience }} Years
+            </p>
+
+            <p>
+                <strong>Hospital:</strong>
+                {{ doctor.hospital }}
+            </p>
+
+            <p>
+                <strong>Fees:</strong>
+                ₹{{ doctor.fees }}
+            </p>
+
+            <a href="{% url 'book_appointment' doctor.id %}"
+   class="book-btn">
+
+                Book Appointment
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Doctors
+{% endblock %}
+
+{% block content %}
+
+<div class="doctor-container">
+
+    <h1>
+        Our Doctors
+    </h1>
+
+<form method="GET" class="search-form">
+
+    <input type="text"
+           name="q"
+           placeholder="Search doctor or specialization">
+
+    <button type="submit">
+
+        Search
+
+    </button>
+
+</form>
+
+    <div class="doctor-cards">
+
+        {% for doctor in doctors %}
+
+        <div class="doctor-card">
+
+            {% if doctor.image %}
+
+                <img src="{{ doctor.image.url }}" alt="Doctor">
+                
+
+            {% endif %}
+
+            <h2>
+                Dr. {{ doctor.user.username }}
+            </h2>
+
+            <p>
+
+                <strong>Specialization:</strong>
+
+                {{ doctor.specialization }}
+
+            </p>
+
+            <p>
+
+                <strong>Experience:</strong>
+
+                {{ doctor.experience }} Years
+
+            </p>
+
+            <p>
+
+                <strong>Qualification:</strong>
+
+                {{ doctor.qualification }}
+
+            </p>
+
+            <a href="{% url 'book_appointment' doctor.user.id %}">
+
+                Book Appointment
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

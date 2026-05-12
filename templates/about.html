@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.about-section{
+    width:100%;
+    background:#f8f9fa;
+    padding:90px 8%;
+    text-align:center;
+}
+
+.about-section h2{
+    font-size:60px;
+    color:#0a2a43;
+    margin-bottom:20px;
+    font-weight:700;
+}
+
+.about-section p{
+    max-width:850px;
+    margin:auto;
+    color:#555;
+    font-size:19px;
+    line-height:1.9;
+}
+
+.service-container{
+    margin-top:80px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:35px;
+}
+
+.service-card{
+    background:white;
+    padding:45px 25px;
+    border-radius:22px;
+    transition:.4s;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.service-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 10px 25px rgba(13,110,253,.2);
+}
+
+.service-card img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    margin-bottom:25px;
+}
+
+.service-card h3{
+    font-size:32px;
+    color:#0d6efd;
+    margin-bottom:18px;
+    font-weight:700;
+}
+
+.service-card p{
+    font-size:16px;
+    color:#666;
+    line-height:1.8;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:768px){
+
+    .about-section{
+        padding:70px 5%;
+    }
+
+    .about-section h2{
+        font-size:42px;
+    }
+
+    .about-section p{
+        font-size:17px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .about-section h2{
+        font-size:34px;
+    }
+
+    .service-card{
+        padding:35px 20px;
+    }
+
+    .service-card h3{
+        font-size:26px;
+    }
+
+}
+
+</style>
+
+<section class="about-section">
+
+    <h2>About Us</h2>
+
+    <p>
+
+        DocCare is a modern doctor appointment system
+        designed to make healthcare services faster,
+        easier, and more accessible for everyone.
+        Patients can search doctors, book appointments,
+        and manage healthcare services online.
+
+    </p>
+
+    <div class="service-container">
+
+        <div class="service-card">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/4320/4320337.png">
+
+            <h3>ENT</h3>
+
+            <p>
+
+                Expert ENT specialists for ear,
+                nose, and throat related treatments.
+
+            </p>
+
+        </div>
+
+        <div class="service-card">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/2966/2966487.png">
+
+            <h3>Dentist</h3>
+
+            <p>
+
+                Professional dental care and
+                oral health treatments for patients.
+
+            </p>
+
+        </div>
+
+        <div class="service-card">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png">
+
+            <h3>Cardiology</h3>
+
+            <p>
+
+                Advanced heart care services
+                with experienced cardiologists.
+
+            </p>
+
+        </div>
+
+        <div class="service-card">
+
+            <img src="https://cdn-icons-png.flaticon.com/512/2785/2785482.png">
+
+            <h3>Health Care</h3>
+
+            <p>
+
+                Complete healthcare solutions
+                with trusted doctors and support.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

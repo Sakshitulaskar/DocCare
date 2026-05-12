@@ -1,0 +1,187 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        {% block title %}
+        DocCare
+        {% endblock %}
+
+    </title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+
+<!-- Navbar -->
+
+<header class="navbar">
+
+    <div class="logo">
+        DocCare
+    </div>
+
+    <nav>
+
+        <a href="{% url 'home' %}">
+            Home
+        </a>
+
+        <a href="{% url 'about' %}">
+            About
+        </a>
+
+        <a href="{% url 'doctors' %}">
+            Doctors
+        </a>
+
+        <a href="{% url 'services' %}">
+            Services
+        </a>
+
+        <a href="{% url 'symptom_checker' %}">
+    AI Checker
+</a>
+
+{% if user.is_authenticated %}
+
+    {% if user.profile.role == 'doctor' %}
+
+        <a href="{% url 'create_doctor_profile' %}">
+            Create Profile
+        </a>
+
+    {% endif %}
+
+{% endif %}
+
+
+        <a href="{% url 'contact' %}">
+            Contact
+        </a>
+
+    </nav>
+
+
+
+    <div class="auth-buttons">
+
+        {% if user.is_authenticated %}
+
+            <span class="welcome-text">
+
+                Welcome, {{ user.username }}
+
+            </span>
+
+            <a href="{% url 'logout' %}"
+               class="logout-btn">
+
+                Logout
+
+            </a>
+
+        {% else %}
+
+            <a href="{% url 'login' %}"
+               class="login-btn">
+
+                Login
+
+            </a>
+
+            <a href="{% url 'register' %}"
+               class="register-btn">
+
+                Register
+
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</header>
+
+
+
+{% if messages %}
+
+    {% for message in messages %}
+
+        <div class="message">
+
+            {{ message }}
+
+        </div>
+
+    {% endfor %}
+
+{% endif %}
+
+
+
+
+
+{% block content %}
+
+{% endblock %}
+
+
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-logo">
+            DocCare
+        </div>
+
+        <div class="footer-links">
+
+            <a href="{% url 'home' %}">
+                Home
+            </a>
+
+            <a href="{% url 'about' %}">
+                About
+            </a>
+
+            <a href="{% url 'services' %}">
+                Services
+            </a>
+
+            <a href="{% url 'contact' %}">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-copy">
+
+        © 2026 DocCare. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

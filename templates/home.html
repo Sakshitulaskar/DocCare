@@ -1,0 +1,155 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+
+
+<section class="hero-section">
+
+    <div class="hero-left">
+
+        <h1>
+            Your Health,
+            <span>Our Priority</span>
+        </h1>
+
+        <p>
+            Book appointments with experienced doctors easily
+            and manage your healthcare online with DocCare.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{% url 'doctors' %}" class="hero-btn">
+                Find Doctors
+            </a>
+
+            <a href="{% url 'register' %}" class="hero-btn-outline">
+                Get Started
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-right">
+
+        <img src="{% static 'images/doctor.png' %}" alt="Doctor Image">
+
+    </div>
+
+</section>
+
+
+
+
+<section class="features-section">
+
+    <h1>
+        Why Choose DocCare?
+    </h1>
+
+    <div class="feature-cards">
+
+        <div class="feature-card">
+
+            <h2>
+                Easy Appointment
+            </h2>
+
+            <p>
+                Book doctor appointments quickly without waiting in long queues.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h2>
+                Expert Doctors
+            </h2>
+
+            <p>
+                Connect with trusted and experienced healthcare professionals.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h2>
+                Secure System
+            </h2>
+
+            <p>
+                Your appointment details and health information stay secure.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="stats-section">
+
+    <div class="stat-box">
+
+        <h1>100+</h1>
+
+        <p>Doctors</p>
+
+    </div>
+
+
+    <div class="stat-box">
+
+        <h1>500+</h1>
+
+        <p>Patients</p>
+
+    </div>
+
+
+    <div class="stat-box">
+
+        <h1>24/7</h1>
+
+        <p>Support</p>
+
+    </div>
+
+</section>
+
+
+
+<section class="cta-section">
+
+    <h1>
+        Start Your Healthcare Journey Today
+    </h1>
+
+    <p>
+        Register now and book your first appointment online.
+    </p>
+
+    <a href="{% url 'register' %}" class="cta-btn">
+        Register Now
+    </a>
+
+</section>
+
+{% endblock %}
+``` make my home page simple and attractive
