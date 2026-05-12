@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-kqvsusl^89$g!)$3c%5()er%6!cnrh*b0y=h@43swja82n9pra
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'doccare-dmi5.onrender.com',
+    '127.0.0.1',
+    'localhost'
+]
 
 
 # Application definition
